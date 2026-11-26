@@ -22,6 +22,7 @@ from app.services.segment_slice import SegmentSliceService
 from app.services.exposure_log import ExposureLogService
 from app.services.conclusion_review import ConclusionReviewService
 from app.services.metric_api import MetricApiService
+from app.services.risk_patrol import RiskPatrolService
 
 SERVICES: dict[str, BaseModuleService] = {
     "event_stream": EventStreamService(),
@@ -44,6 +45,7 @@ SERVICES: dict[str, BaseModuleService] = {
     "exposure_log": ExposureLogService(),
     "conclusion_review": ConclusionReviewService(),
     "metric_api": MetricApiService(),
+    "risk_patrol": RiskPatrolService(),
 }
 
 

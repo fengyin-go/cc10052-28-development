@@ -27,9 +27,19 @@ class Store:
                 return row
         return None
 
+    # 风险巡检工作台内部表（仅作证据存储，不进入运营概览的通用模块统计）。
+    INTERNAL_TABLES = {
+        "patrol_snapshot",
+        "patrol_aa_run",
+        "patrol_work_order",
+        "patrol_retro",
+    }
+
     def overview(self) -> dict[str, object]:
         modules: list[dict[str, object]] = []
         for name in self.module_names():
+            if name in self.INTERNAL_TABLES:
+                continue
             rows = self.rows(name)
             modules.append({
                 "name": name,
